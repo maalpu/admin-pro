@@ -54,3 +54,10 @@ ng g s service/sidebar --skipTests=false
 - Aceleración de animaciones
   Modificar el archivo: assets/css/animate.css donde encuentres: duration: 1s se puede cambiar por duration: 0.3s
 
+- Crear el primer Módulo [30]
+  Crear el archivo pages/pages.module.ts 
+
+- Crear un Módulo shared [31]
+
+- Rutas hijas - ForChild() [33]
+  
