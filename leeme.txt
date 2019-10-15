@@ -1,0 +1,56 @@
+- Crear los componentes
+ng g c login --skipTests=false -is
+ng g c nopagefound --skipTests=false -is
+ng g c pages/dashboard --skipTests=false -is
+ng g c pages/progress --skipTests=false -is
+ng g c pages/graficas1 --skipTests=false -is
+ng g c shared/header --skipTests=false -is
+ng g c shared/sidebar --skipTests=false -is
+ng g c shared/breadcrumbs --skipTests=false -is
+ng g c shared/navbar --skipTests=false -is
+
+- Crear los servicios
+ng g s service/shared --skipTests=false
+ng g s service/sidebar --skipTests=false
+
+- Agregar las librerías Externas
+ ir a: C:\Users\Mario\Documents\Proyectos\Angular Adv\Material de la sección-3\main
+ copiar las carpetas: css, js y scss - en: src\app\assets
+
+ ir a: C:\Users\Mario\Documents\Proyectos\Angular Adv\Material de la sección-3\assets\plugins
+ crear la carpeta: plugins en: src\app\assets\
+ copiar la carpetas: bootstrap - en: src\app\assets\plugins
+
+- Separando el Login del Template
+  - Crear un componente llamado pages dentro de la carpeta pages
+    ng g c pages/pages --flat -is --skipTests=false
+  - Cortar el contenido de app.component.html, grabar cambios y pegar en pages.component.html
+    (en la url no se verá contenido pero no habrá errores)
+  - En app.component.html insertar lo siguiente:
+    <router-outlet></router-outlet>
+  - En app.routes.ts insertar la siguiente ruta en primer lugar:
+    { path: '', component: PagesComponent },
+    y comentamos la siguiente línea:
+    // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  - Definir temporalmente unas rutas hijas, en app.routes.ts
+    Modificar { path: '', component: PagesComponent },
+    por lo siguiente:
+    { 
+        path: '', component: PagesComponent.
+        children: [
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'progress', component: ProgressComponent },
+            { path: 'graficas1', component: Graficas1Component },
+            { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+        ] 
+    },
+  - Copiar el contenido del pages-login-2.html en login.component.html
+  - Crear en el componente login el archivo: login.component.css
+  - Copiar el contenido de login-register-lock.css y pegarlo en login.component.css
+  - Remplazar de login.component.ts: styles: [] Por: styleUrls: ['./login.component.css'] 
+
+  - Copiar el contenido del pages-register-2.html en register.component.html
+
+- Aceleración de animaciones
+  Modificar el archivo: assets/css/animate.css donde encuentres: duration: 1s se puede cambiar por duration: 0.3s
+
