@@ -60,4 +60,18 @@ ng g s service/sidebar --skipTests=false
 - Crear un Módulo shared [31]
 
 - Rutas hijas - ForChild() [33]
-  
+
+- Guardar los cambios en GitHub y crear un Tag de producción
+  $ git status
+  $ git commit -am "Modificaciones en las Rutas"
+  $ git push origin master
+  $ git add .
+  $ git commit -m "Agregamos y modificamos Módulos"
+  $ git push origin master
+  $ git tag -a v1.0.0 -m "Versión 1.0.0 - Lista para Producción"
+  $ git tag         // Verifica que se hizo el Tag
+  $ git push --tags // Sube el Tag a GitHub
+
+- Implementar gráficos en donas - ng2-charts
+  incluir en pages.module.ts la siguiente línea
+    import { ChartsModule } from 'ng2-charts';
